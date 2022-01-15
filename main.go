@@ -1,8 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
+	findLargestArray()
+}
+
+func findLargestArray() {
 	var value, temp int
 	size := 0
 
@@ -15,7 +22,12 @@ func main() {
 		fmt.Scanln(&elements[i])
 	}
 
-	fmt.Println("value array yang sudah dimasukkan:... ", elements)
+	//sorting array
+	sort.Slice(elements, func(i, j int) bool {
+		return elements[i] < elements[j]
+	})
+
+	fmt.Println("value array urutan yang sudah dimasukkan:... ", elements)
 
 	for _, element := range elements {
 		if element > temp {
